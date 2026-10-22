@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- Write your code below -->
+  <h1>Book Appointment</h1>
+  
+  <form onsubmit="handleFormSubmit(event)" id="form">
+    <h2>Patient Details</h2>
+    <hr />
+    
+    <label for="name">
+      Name: <input id="name" name="name" type="text" />
+    </label>
+    <br/><br/>
+    
+    <label for="email">
+      Email: <input id="email" name="email" type="email" />
+    </label>
+    <br/><br/>
+    
+    <label for="phone">
+      Phone: <input id="phone" name="phone" type="tel" />
+    </label>
+    <br/><br/>
+    
+    <label for="date">
+      Date: <input id="date" name="date" type="date" />
+    </label>
+    <br/><br/>
+    
+    <label for="time">
+      Time: <input id="time" name="time" type="time" />
+    </label>
+    <br/><br/>
+    
+    <div>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </div>
+  </form>
+
+  <script>
+      function handleFormSubmit(event) {
+          event.preventDefault(); // Prevents the page from reloading
+          console.log("Form submitted!");
+          
+          const formData = new FormData(event.target);
+          const formDataObject = Object.fromEntries(formData);
+          console.log("Form Data Object:", formDataObject);
+      }
+  </script>
+  <!-- <script src="index.js"></script> -->
+</body>
+</html>
