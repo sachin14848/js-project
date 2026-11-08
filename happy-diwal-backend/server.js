@@ -41,7 +41,6 @@ app.get("/api", (req, res) => {
       getWish: "GET /api/wishes/:id",
       createWish: "POST /api/wishes",
       updateWish: "PUT /api/wishes/:id",
-      deleteWish: "DELETE /api/wishes/:id",
     },
   });
 });
