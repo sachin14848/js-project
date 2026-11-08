@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Diwali</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <p id="status" class="status">Lighting the diyas...</p>
+        <div id="wishes"></div>
+
+        <form id="wish-form" class="wish-form">
+            <h3>Share a Diwali wish</h3>
+            <input type="text" name="title" placeholder="Title" value="Happy Diwali" required>
+            <input type="text" name="kicker" placeholder="Short label (optional)">
+            <textarea name="description" placeholder="Your Diwali message" required></textarea>
+            <select name="style">
+                <option value="modern">Modern</option>
+                <option value="classic">Classic</option>
+            </select>
+            <button type="submit">Send wish</button>
+        </form>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
