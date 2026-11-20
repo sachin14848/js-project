@@ -1,4 +1,4 @@
-const API_URL = "https://crudcrud.com/api/c4b5397721be4919aa10ea789d9d35c3/appointmentData";
+const API_URL = "https://crudcrud.com/api/fef4da1becaf4ddaad0b20c90bdfc836/appointmentData";
 document.addEventListener('DOMContentLoaded', () => {
     getAllUsers();
 });
