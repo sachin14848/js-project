@@ -5,7 +5,10 @@ const server = http.createServer((req, res)=> {
     if(req.url === '/'){
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/html');
+        let formValues ='';
+        formValues = fs.readFileSync('formValues.txt', 'utf8');
         res.end(`
+            <h1>${formValues}</h1>
             <form action='/message' method='POST' id="myForm">
             <label for="username">Name:</label>
             <input type="text" name="username" placeholder="Enter your name" required>
@@ -31,6 +34,7 @@ const server = http.createServer((req, res)=> {
             })
             res.statusCode = 302;
             res.setHeader('Location', '/');
+            res.end();
         })
     }
 })
