@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node express.js",
-    "dev": "nodemon express.js"
+    "start": "node order-management.js",
+    "dev": "nodemon order-management.js"
   },
   "keywords": [],
   "type": "commonjs",
