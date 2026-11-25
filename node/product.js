@@ -2,6 +2,13 @@ const express = require("express");
 
 const app = express();
 
+app.use((req, res, next)=>{
+    const method = req.method;
+    const url = req.url.split('?')[0];
+    console.log(`${method} request made to ${url}`);
+    next();
+})
+
 app.get("/", (req, res) => {
   res.send("<h1>Welcome to the Product Management System</h1>");
 });
