@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/order', orderRoutes);
-app.use('/product', productRoutes);
+app.use('/api/product', productRoutes);
 app.use('/user', userRoutes);
 app.use('/books', bookRoutes);
 app.use('/students', studentRoutes);
