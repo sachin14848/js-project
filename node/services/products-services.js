@@ -1,3 +1,4 @@
+
 const getAllProductsMessage = () => {
   return "<h1>Fetching all products</h1>";
 };
