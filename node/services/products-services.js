@@ -1,11 +1,22 @@
+const { sendErrorResponse, sendSuccessResponse } = require("../utils/response");
 
 const getAllProductsMessage = () => {
   return "<h1>Fetching all products</h1>";
 };
 
-const addProduct = (name, price) => {
+const addProduct = (res, name, price) => {
   console.log(`Adding product: ${name} - $${price}`);
-  return `<h1>Adding a new product: ${name} - $${price}</h1>`;
+  if (!name || !price) {
+    return sendErrorResponse(res, {
+      message: "Product name and price are required.",
+      statusCode: 400,
+    });
+  }
+  return sendSuccessResponse(res, {
+    id: Math.floor(Math.random() * 1000),
+    name,
+    price,
+  });
 };
 
 const getProductByIdMessage = (productId) => {

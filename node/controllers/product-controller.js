@@ -8,7 +8,7 @@ const getAllProducts = (req, res) => {
 
 const addProduct = (req, res) => {
   const { name, price } = req.body;
-  const result = productService.addProduct(name, price);
+  const result = productService.addProduct(res, name, price);
   res.send(result);
 };
 

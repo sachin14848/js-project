@@ -17,6 +17,7 @@
           background-color: lightgreen;
           padding: 10px;
           border: 1px solid green;
+          margin-bottom: 10px;
         "
       ></div>
       <label for="productName">Product Name:</label>
@@ -40,10 +41,16 @@
         console.log("Product added:", response.data);
         const successMessage = document.getElementById("success-message");
         successMessage.innerHTML =
-          response.data || "Product added successfully!";
+          response.data.message || "Product added successfully!";
         successMessage.style.display = "block";
       } catch (error) {
-        console.error("Error adding product:", error);
+        const successMessage = document.getElementById("success-message");
+        successMessage.innerHTML = `${error.response.data.error}`;
+        successMessage.style.display = "block";
+        successMessage.style.color = "red";
+        successMessage.style.backgroundColor = "lightcoral";
+        successMessage.style.border = "1px solid red";
+
       }
     });
   </script>
