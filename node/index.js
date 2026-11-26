@@ -5,6 +5,7 @@ const userRoutes = require('./routes/user');
 const bookRoutes = require('./routes/book-management');
 const studentRoutes = require('./routes/student');
 const courseRoutes = require('./routes/course');
+const cartRouter = require('./routes/cart')
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use('/user', userRoutes);
 app.use('/books', bookRoutes);
 app.use('/students', studentRoutes);
 app.use('/courses', courseRoutes);
+app.use('/cart', cartRouter);
 
 
 app.listen(4000, ()=> {
