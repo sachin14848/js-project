@@ -1,18 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Fetching All Products</h1>
     <form>
-        <label for="productName">Product Name:</label>
-        <input type="text" id="productName" name="productName">
-        <label for="productPrice">Product Price:</label>
-        <input type="text" id="productPrice" name="productPrice">
-        <button type="submit">Add Product</button>
+      <h1>Add a New Product</h1>
+      <div
+        id="success-message"
+        style="
+          display: none;
+          color: green;
+          background-color: lightgreen;
+          padding: 10px;
+          border: 1px solid green;
+        "
+      ></div>
+      <label for="productName">Product Name:</label>
+      <input type="text" id="productName" name="productName" />
+      <label for="productPrice">Product Price:</label>
+      <input type="text" id="productPrice" name="productPrice" />
+      <button type="submit">Add Product</button>
     </form>
-</body>
+  </body>
+  <script>
+    const form = document.querySelector("form");
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const productName = document.getElementById("productName").value;
+      const productPrice = document.getElementById("productPrice").value;
+      try {
+        const response = await axios.post("/api/product", {
+          name: productName,
+          price: productPrice,
+        });
+        console.log("Product added:", response.data);
+        const successMessage = document.getElementById("success-message");
+        successMessage.innerHTML =
+          response.data || "Product added successfully!";
+        successMessage.style.display = "block";
+      } catch (error) {
+        console.error("Error adding product:", error);
+      }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </html>
