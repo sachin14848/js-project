@@ -6,6 +6,32 @@ const bookRoutes = require('./routes/book-management');
 const studentRoutes = require('./routes/student');
 const courseRoutes = require('./routes/course');
 const cartRouter = require('./routes/cart')
+const mysql = require('mysql2');
+
+const connection = mysql.createConnection({
+    host:'localhost',
+    port: 3306,
+    user: 'root',
+    password: 'root123',
+    database: 'testdb'
+})
+
+connection.connect((err) => {
+    if(err) {
+        console.error('Error connecting to MySQL:', err);
+        return;
+    }
+    console.log('Connected to MySQL database');
+    const creationQuery = 'CREATE TABLE  students (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(25), email VARCHAR(25))';
+    connection.execute(creationQuery, (err, results) => {
+        if(err) {
+            console.error('Error creating table:', err);
+            connection.end();
+            return;
+        }
+        console.log('Table created successfully', results);
+    });
+});
 
 const app = express();
 
